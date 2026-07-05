@@ -37,4 +37,4 @@ urine.png
 save.png
 
 ## Developed By
-Palak
+Palak Deep
