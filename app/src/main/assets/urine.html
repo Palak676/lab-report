@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Urine Analysis</title>
+
+    <style>
+        body {
+   font-family: Arial, sans-serif;
+   background: #ccc;
+}
+
+.page {
+            width: 794px;
+            height: 1123px;
+            background: #fff;
+            margin: auto;
+            padding: 10px;
+            border: 2px solid black;
+            position: relative;
+        }
+
+/* Header */
+.header {
+   text-align: center;
+   color: #008080;
+}
+
+.header h1 {
+   margin: 0;
+   font-size: 36px;
+   font-weight: bold;
+}
+
+.header .sub {
+   border: 2px solid #008080;
+   display: inline-block;
+   padding: 5px 15px;
+   margin: 5px 0;
+   font-weight: bold;
+}
+
+.header .address {
+   font-weight: bold;
+   margin-top: 5px;
+}
+
+/* Patient Info */
+.row {
+   margin-top: 15px;
+}
+
+.input-line {
+   border: none;
+   border-bottom: 1px dotted black;
+   width: 250px;
+   outline: none;
+}
+
+.input-small {
+   width: 150px;
+}
+
+/* Section Title */
+.section-title {
+   text-align: center;
+   margin: 20px 0;
+}
+
+.section-title span {
+   background: #008080;
+   color: white;
+   padding: 5px 15px;
+   border-radius: 5px;
+   font-weight: bold;
+}
+
+/* Table */
+.table {
+   display: flex;
+   justify-content: space-between;
+}
+
+.col {
+   width: 48%;
+}
+
+.item {
+   margin: 10px 0;
+}
+
+.item label {
+   display: inline-block;
+   width: 180px;
+}
+
+.input-value {
+   border: none;
+   border-bottom: 1px dotted black;
+   width: 200px;
+   outline: none;
+}
+
+.footer {
+            position: absolute;
+            bottom: 40px;
+            font-size: 12px;
+        }
+.clear {
+   clear: both;
+}
+.signature {
+            text-align: right;
+            margin-top: 300px;
+            font-weight: bold;
+        }
+/* Print */
+ @media print {
+            button { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>N.K. DIAGNOSTIC LABORATORY</h1>
+        <div class="sub">FULLY AUTOMATED COMPUTERISED LAB.</div>
+        <div class="address">VILL. KALSANA, DISTT. KURUKSHETRA</div>
+        <p style="text-align:right;">Mob.: +91 97104 80007</p>
+    </div>
+<hr><hr><br>
+    <!-- PATIENT INFO -->
+    <div class="row">
+        Patient's Name:
+        <input class="input-line" id="name" type="text">
+        &nbsp;&nbsp;&nbsp;
+        Age & Sex:
+        <input class="input-line input-small" id="age" type="text">
+    </div>
+
+    <div class="row">
+        Referred by Dr:
+        <input class="input-line" id="doctor" type="text">
+        &nbsp;&nbsp;&nbsp;
+        Dated:
+        <input class="input-line input-small" id="date" type="date">
+    </div>
+
+    <!-- TITLE -->
+    <div class="section-title">
+        <span>URINE ANALYSIS</span>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table">
+
+        <!-- LEFT -->
+        <div class="col">
+            <div class="item">Colour: <input id="colour" class="input-value"></div>
+            <div class="item">Reaction: <input id="reaction" class="input-value"></div>
+            <div class="item">SP. Gravity: <input id="gravity" class="input-value"></div>
+            <div class="item">Turbidity: <input id="turbidity" class="input-value"></div>
+            <div class="item">Albumin: <input id="albumin" class="input-value"></div>
+            <div class="item">Sugar:<input id="sugar" class="input-value"></div>
+            <div class="item">Bile Salts: <input id="bile_salts" class="input-value"></div>
+            <div class="item">Bile Pigments: <input id="pigmnets" class="input-value"></div>
+            <div class="item">Urobilinogen: <input id="urobilinogen" class="input-value"></div>
+            <div class="item">Urine for HCG: <input id="urine" class="input-value"></div>
+            <div class="item">Pregnancy Test: <input id="pregnancy" class="input-value"></div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="col">
+            <div class="item">Epithelial Cells: <input id="cells" class="input-value"></div>
+            <div class="item">Pus Cells: <input id="pus_cells" class="input-value"></div>
+            <div class="item">R.B.C: <input id="R.B.C" class="input-value"></div>
+            <div class="item">Leukocytes: <input id="leukocytes" class="input-value"></div>
+            <div class="item">Casts: <input id="casts" class="input-value"></div>
+            <div class="item">Crystals: <input id="crystals" class="input-value"></div>
+            <div class="item"> <input class="input-value"></div>
+            <div class="item"> <input class="input-value"></div>
+            <div class="item">Amorphous Material: <input id="Materials" class="input-value"></div>
+            <div class="item">Blood: <input id="blood" class="input-value"></div>
+            <div class="item">Spermatozoa: <input id="spermatoza" class="input-value"></div>
+        </div>
+
+    </div>
+
+    <!-- OTHER -->
+    <div class="row">
+        <input class="input-line" style="width:100%;"><br><br>
+        <input class="input-line" style="width:100%;"><br><br>
+        <input class="input-line" style="width:100%;">
+    </div>
+
+    <div class="footer">
+        TEST REPORT NOT VALID FOR MEDICO-LEGAL PURPOSE.<br>
+        THIS REPORT IS VALID FOR SAME DAY/SAME SAMPLE.<br><br>
+    </div>
+    <div class="signature"> Medical Lab Technologist</div>
+</div>
+
+<button onclick="saveData()">Save</button>
+<button onclick="printPDF()">Print/Save PDF</button>
+
+<script>
+
+    // ✅ SAVE
+    function saveData(){
+        alert("Save clicked ✅");
+let inputs = document.querySelectorAll("input");
+       let data = {};
+
+    inputs.forEach(input => {
+        if(input.id){
+            data[input.id] = input.value;
+        }
+    });
+    data.type ="urine";
+
+
+        if(typeof Android !== "undefined"){
+            Android.saveData(JSON.stringify(data));
+        } else {
+            alert("Android not connected ❌");
+        }
+    }
+
+    // ✅ PRINT
+    function printPDF(){
+        alert("Opening Print / PDF ...");
+
+        if(typeof Android !== "undefined"){
+            Android.printPDF();   // SAME function
+        }
+    }
+    function loadData(data){
+    console.log("DATA RECEIVED:", data);
+    let inputs = document.querySelectorAll("input");
+
+    inputs.forEach(input => {
+        if(input.id){
+            input.value = data[input.id] || "";
+        }
+    });
+}
+
+</script>
+ </body>
+  </html>
